@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
-	before_save { |user| user.email = email.downcase }
+	before_save do |user| 
+        user.email = email.downcase 
+        user.remember_token = SecureRandom.urlsafe_base64
+        end #Creates a "remember-me token"
     validates :name, presence: true, length: { in: 9..30 }
     validates :password, presence: true, length: { minimum: 6 }
     validates :password_confirmation, presence: true
