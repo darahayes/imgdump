@@ -1,6 +1,7 @@
 Mytwitter::Application.routes.draw do
   resources :users       # NEW LINE
   resources :sessions, only: [:new, :create, :destroy] #for sessions
+  resources :microposts, only: [:create, :destroy] #for microposts resources
   root to: 'static_pages#home'
   match '/signup',  to: 'users#new', via: 'get'
   match '/signin',  to: 'sessions#new', via: 'get' # NEW LINE
