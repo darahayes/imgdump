@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Mytwitter::Application.config.secret_key_base = '22f41137f602d8781a5c8e6b729e95fbe0075e0227cfa631ca30eac2bfdeee831a07a3021f31d419accac28010bd8769cc66e4b646cddc0eb74df06f4c380010'
+Imgdump::Application.config.secret_key_base = '22f41137f602d8781a5c8e6b729e95fbe0075e0227cfa631ca30eac2bfdeee831a07a3021f31d419accac28010bd8769cc66e4b646cddc0eb74df06f4c380010'

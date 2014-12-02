@@ -1,4 +1,4 @@
-Mytwitter::Application.routes.draw do
+Imgdump::Application.routes.draw do
   resources :users       # NEW LINE
   resources :sessions, only: [:new, :create, :destroy] #for sessions
   resources :microposts, only: [:create, :destroy] #for microposts resources
