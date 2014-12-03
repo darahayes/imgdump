@@ -1,0 +1,20 @@
+<% provide(:title, 'Photo Upload') %>
+<h2>Upload Photo</h2>
+<div class="row">
+      <div class="span6 offset3">
+        <%= form_for(@photo, html: { multipart: true }) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>   <!-- NEW LINE  -->
+
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+
+    	  <%= f.file_field :image %>
+
+    	  <%= f.label :remote_image_url, "or paste in a URL" %>  
+    	  <%= f.text_field :remote_image_url %>
+          <%= f.submit "Upload", class: "btn btn-large btn-primary" %>
+
+           
+        <% end %>
+      </div>
+ </div>

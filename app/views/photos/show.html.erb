@@ -1,0 +1,8 @@
+<span class="content">
+    <h1><%= @photo.title %><h2>
+    <%= image_tag @photo.image %>
+    <% if current_user?(@photo.user) %>
+    <%= link_to "delete", @photo, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>

@@ -1,5 +1,6 @@
 Imgdump::Application.routes.draw do
   resources :users       # NEW LINE
+  resources :photos
   resources :sessions, only: [:new, :create, :destroy] #for sessions
   resources :microposts, only: [:create, :destroy] #for microposts resources
   root to: 'static_pages#home'
@@ -9,6 +10,7 @@ Imgdump::Application.routes.draw do
   match '/help',    to: 'static_pages#help' , via: 'get'
   match '/about',   to: 'static_pages#about', via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/upload', to:  'photos#new', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
