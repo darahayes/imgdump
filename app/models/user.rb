@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+    has_many :photos, dependent: :destroy
+    has_many :votes
 	before_save do |user| 
         user.email = email.downcase 
         user.remember_token = SecureRandom.urlsafe_base64
