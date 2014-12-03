@@ -28,7 +28,6 @@ module SessionsHelper
         !current_user.nil?
     end
 
-<<<<<<< HEAD
     def signed_in_user
     	unless signed_in?
     		flash[:notice] = "Please sign in"
@@ -39,9 +38,4 @@ module SessionsHelper
     def current_user?(user)
         user == current_user
       end
-=======
-    def current_user?(user)
-    	current_user == user
-    end
->>>>>>> sign-in-out
 end

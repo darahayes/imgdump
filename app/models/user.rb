@@ -1,11 +1,6 @@
 class User < ActiveRecord::Base
-<<<<<<< HEAD
-    has_many :microposts, dependent: :destroy #indicates association with micropost
-    #also deletes any microposts associated with a user if the user is deleted
-=======
     has_many :photos, dependent: :destroy
     has_many :votes
->>>>>>> sign-in-out
 	before_save do |user| 
         user.email = email.downcase 
         user.remember_token = SecureRandom.urlsafe_base64
@@ -18,8 +13,4 @@ class User < ActiveRecord::Base
                         format: { with: VALID_EMAIL_REGEX },
                         uniqueness: { case_sensitive: false }
     has_secure_password      # A magic method!!
-
-    def feed
-        Micropost.where("user_id = ?", id)
-    end
 end 

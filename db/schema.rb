@@ -11,27 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20141111101841) do
-
-  create_table "microposts", force: true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-=======
 ActiveRecord::Schema.define(version: 20141202233630) do
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
     t.integer  "photo_id"
     t.string   "text"
->>>>>>> sign-in-out
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
-  add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
-=======
   create_table "photos", force: true do |t|
     t.integer  "user_id"
     t.string   "image"
@@ -40,7 +29,6 @@ ActiveRecord::Schema.define(version: 20141202233630) do
     t.string   "title"
     t.string   "remote_image_url"
   end
->>>>>>> sign-in-out
 
 # Could not dump table "users" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass

@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-before_filter :correct_user, only: :destroy 
+before_filter :correct_user, only: :destroy
 	def new
 		if signed_in?
 			@photo = Photo.new()
@@ -14,10 +14,14 @@ before_filter :correct_user, only: :destroy
 	end
 
 	def create
-		secure_params = params.require(:photo).permit(:title, :image, :remote_image_url)
-		current_user.photos.create(secure_params)
-		flash[:success] = "Photo Uploaded"
-		redirect_to current_user
+		if signed_in?
+			secure_params = params.require(:photo).permit(:title, :image, :remote_image_url)
+			current_user.photos.create(secure_params)
+			flash[:success] = "Photo Uploaded"
+			redirect_to current_user
+		else
+			redirect_to root_url
+		end
 	end
 
 	def destroy
