@@ -1,6 +1,9 @@
 Imgdump::Application.routes.draw do
   resources :users       # NEW LINE
-  resources :photos
+  resources :photos do
+  resources :comments
+  end
+  
   resources :sessions, only: [:new, :create, :destroy] #for sessions
   root to: 'static_pages#home'
   match '/signup',  to: 'users#new', via: 'get'

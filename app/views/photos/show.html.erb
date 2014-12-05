@@ -1,8 +1,44 @@
 <span class="content">
-    <h1><%= @photo.title %><h2>
-    <%= image_tag @photo.image %>
+  <aside>
+    <div class="row">
+      <div class="span12">
+        <h1>
+          <%= @photo.title %>
+        <h1>
+        <%= image_tag @photo.image %>
+      </div>
+    </div>
     <% if current_user?(@photo.user) %>
-    <%= link_to "delete", @photo, method: :delete,
-                                       data: { confirm: "You sure?" } %>
+      <div class="row">
+        <div class="span1 offset11">
+          <%= link_to "delete", @photo, method: :delete,
+                                         data: { confirm: "You sure?" } %>
+        </div>
+      </div>
     <% end %>
-  </span>
+</aside>
+    <div class="row">
+        <%= render :partial => "shared/comment_form" %>
+    </div>
+    <div class="container">    
+        <div class="row">
+            <div class="panel panel-default widget">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-comment"></span>
+                    <h3 class="panel-title">Comments</h3>
+                    <span class="label label-info"><%=@comments.size%></span>
+                </div>
+                <div class="panel-body">
+                    <ol class="list-group">
+                        <% if @comments.any? %>
+                            <%= render @comments %>
+                        <%end%>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</span>
+
+
+  

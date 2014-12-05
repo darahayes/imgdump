@@ -11,6 +11,7 @@ before_filter :correct_user, only: :destroy
 
 	def show
 		@photo = Photo.find_by_id(params[:id]) or render_404
+		@comments = @photo.comments
 	end
 
 	def create
