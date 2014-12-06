@@ -60,6 +60,12 @@ group :test do
   gem 'capybara', '2.1.0'
 end
 
+group :production do
+	gem 'unicorn', '4.8.3'
+	gem 'pg',             '0.17.1'
+  	gem 'rails_12factor', '0.0.2'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
