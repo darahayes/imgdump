@@ -1,15 +1,11 @@
 <li class="list-group-item">
                         <div class="row">
-                            <div class="col-xs-2 col-md-1">
+                            <div class="span2">
                                 <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
-                            <div class="col-xs-10 col-md-11">
+                            <div class="span10">
                                 <div>
                                     <div class="mic-info">
                                         <%= link_to comment.user.name, comment.user%> <%= time_ago_in_words(comment.created_at)%> ago.
-                                        <% if current_user?(comment.user) %>
-                                        <%= link_to "delete", photo_comment_path(@photo, comment), method: :delete,
-                                         data: { confirm: "Are you sure you want to delete your comment?" } %>
-                                        <%end%>
                                     </div>
                                 </div>
                                 <div class="comment-text">
@@ -17,14 +13,19 @@
                                 </div>
                                 <div class="action">
                                     <button type="button" class="btn btn-primary btn-xs" title="Edit">
-                                        <span class="glyphicon glyphicon-pencil"></span>
+                                        <span class="icon-pencil"></span>
                                     </button>
                                     <button type="button" class="btn btn-success btn-xs" title="Approved">
-                                        <span class="glyphicon glyphicon-ok"></span>
+                                        <span class="icon-ok"></span>
                                     </button>
+                                    <% if current_user?(comment.user) %>
                                     <button type="button" class="btn btn-danger btn-xs" title="Delete">
-                                        <span class="glyphicon glyphicon-trash"></span>
+                                        <%= link_to photo_comment_path(@photo, comment), method: :delete,
+                                         data: { confirm: "Are you sure you want to delete your comment?" } do%>
+                                             <i class="icon-trash"></i>
+                                        <% end %>
                                     </button>
+                                    <%end%>
                                 </div>
                             </div>
                         </div>

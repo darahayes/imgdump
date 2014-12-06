@@ -28,14 +28,26 @@ module SessionsHelper
         !current_user.nil?
     end
 
+    #action is a string passed from controllers
     def signed_in_user
     	unless signed_in?
-    		flash[:notice] = "Please sign in"
-    		redirect_to signin_url
-    	end
+          store_location
+          flash[:danger] = "Please Sign in first."
+          redirect_to signin_path
+        end
     end
 
     def current_user?(user)
         user == current_user
-      end
+    end
+
+    def redirect_back_or(default)
+	    redirect_to(session[:forwarding_url] || default)
+	    session.delete(:forwarding_url)
+  	end
+
+  # Stores the URL trying to be accessed.
+  def store_location
+    session[:forwarding_url] = request.url if request.get?
+  end
 end

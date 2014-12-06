@@ -1,5 +1,7 @@
 Imgdump::Application.routes.draw do
-  resources :users       # NEW LINE
+  resources :users   do
+  resources :comments
+  end    # NEW LINE
   resources :photos do
   resources :comments
   end

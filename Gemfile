@@ -11,7 +11,7 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'sqlite3'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -33,10 +33,15 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'sprockets', '2.11.0'
+gem 'autoprefixer-rails'
+gem 'prettyphoto-rails'
 
 gem 'carrierwave',             '0.10.0'
 gem 'mini_magick',             '3.8.0'
 gem 'fog',                     '1.23.0'
+gem 'will_paginate',           '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
+gem 'faker',                '1.4.2'
 #Gems needed for photo upload
 
 #gem 'protected_attributes'

@@ -1,28 +1,26 @@
 class PhotosController < ApplicationController
 before_filter :correct_user, only: :destroy
+before_filter :signed_in_user, only: [:create, :new]
+	
+
 	def new
-		if signed_in?
 			@photo = Photo.new()
-		else
-			flash[:error] = "You must be signed in to upload an image"
-			redirect_to signin_path
-		end
 	end
 
 	def show
-		@photo = Photo.find_by_id(params[:id]) or render_404
-		@comments = @photo.comments
+		@photo = Photo.find_by_id(params[:id])
+		if @photo
+			@comments = @photo.comments  
+		else 
+			render_404 
+		end
 	end
 
 	def create
-		if signed_in?
 			secure_params = params.require(:photo).permit(:title, :image, :remote_image_url)
-			current_user.photos.create(secure_params)
+			@photo = current_user.photos.create(secure_params)
 			flash[:success] = "Photo Uploaded"
-			redirect_to current_user
-		else
-			redirect_to root_url
-		end
+			redirect_to @photo
 	end
 
 	def destroy

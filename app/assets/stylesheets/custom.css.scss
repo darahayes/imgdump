@@ -1,4 +1,5 @@
-@import "bootstrap";
+
+@import 'bootstrap';
 
 /* universal */
 
@@ -174,61 +175,20 @@
 
      /* microposts */
 
-    .microposts {
-      list-style: none;
-      margin: 10px 0 0 0;
+    /* Users index */
+      .users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $grayLighter;
+  }
+} 
 
-      li {
-        padding: 10px 0;
-        border-top: 1px solid #e8e8e8;
-      }
-    }
-    .content {
-      display: block;
-    }
-    .timestamp {
-      color: $grayLight;
-    }
-    .gravatar {
-      float: left;
-      margin-right: 10px;
-    }
-    aside {
-      textarea {
-        height: 100px;
-        margin-bottom: 5px;
-      }
-    } 
-
-    /* microposts */
-
-    .microposts {
-      list-style: none;
-      margin: 10px 0 0 0;
-
-      li {
-        padding: 10px 0;
-        border-top: 1px solid #e8e8e8;
-      }
-    }
-    .content {
-      display: block;
-    }
-    .timestamp {
-      color: $grayLight;
-    }
-    .gravatar {
-      float: left;
-      margin-right: 10px;
-    }
-    aside {
-      textarea {
-        height: 100px;
-        margin-bottom: 5px;
-      }
 
   /*comments*/
-
+    
       .widget .panel-body { padding:0px; }
       .widget .list-group { margin-bottom: 0; }
       .widget .panel-title { display:inline }
@@ -239,6 +199,8 @@
       .widget .action { margin-top:5px; }
       .widget .comment-text { font-size: 12px; }
       .widget .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }    
-    } 
+
+  
+
 
     

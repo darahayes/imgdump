@@ -11,7 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.prettyPhoto
+//= require bootstrap
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require bootstrap
+
