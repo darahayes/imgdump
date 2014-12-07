@@ -1,12 +1,18 @@
 Imgdump::Application.routes.draw do
   resources :users   do
-  resources :comments
+    member do
+      get :following, :followers
+    end
+    resources :comments
   end    # NEW LINE
-  resources :photos do
-  resources :comments
-  end
   
+  resources :photos do
+    resources :comments
+  end
+
+  resources :relationships, only: [:create, :destroy]
   resources :sessions, only: [:new, :create, :destroy] #for sessions
+  
   root to: 'static_pages#home'
   match '/signup',  to: 'users#new', via: 'get'
   match '/signin',  to: 'sessions#new', via: 'get' # NEW LINE
