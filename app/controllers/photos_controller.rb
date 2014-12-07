@@ -19,8 +19,12 @@ before_filter :signed_in_user, only: [:create, :new]
 	def create
 			secure_params = params.require(:photo).permit(:title, :image, :remote_image_url)
 			@photo = current_user.photos.create(secure_params)
-			flash[:success] = "Photo Uploaded"
-			redirect_to @photo
+			if @photo.save
+				flash[:success] = "Photo Uploaded"
+				redirect_to @photo
+			else
+				render 'new'
+			end
 	end
 
 	def destroy

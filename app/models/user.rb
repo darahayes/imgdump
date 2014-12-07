@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     accepts_nested_attributes_for :photos
 	before_save do |user| 
         user.email = email.downcase 
-        end #Creates a "remember-me token"
+        end 
     validates :name, presence: true, length: { in: 1..50 }
     validates :password, length: { minimum: 6 }, allow_blank: true
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

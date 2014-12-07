@@ -160,6 +160,12 @@
       @include box_sizing;
     }
 
+    .upload-btn {
+    border: $white;
+      width: 100%;
+      
+    }
+
      #error_explanation {
       color: #f00;
       ul {
