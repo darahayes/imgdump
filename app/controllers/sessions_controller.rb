@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
           redirect_back_or user
         else
           flash[:error] = 'Invalid email/password combination'
-          redirect_ signin_path
+          redirect_to signin_path
         end
 	end
 
