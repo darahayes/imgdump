@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206154641) do
+ActiveRecord::Schema.define(version: 20141207012502) do
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
@@ -30,8 +30,17 @@ ActiveRecord::Schema.define(version: 20141206154641) do
     t.string   "remote_image_url"
   end
 
-# Could not dump table "users" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
+    t.boolean  "admin",           default: false
+    t.string   "remember_digest"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
   create_table "votes", force: true do |t|
     t.integer  "user_id"

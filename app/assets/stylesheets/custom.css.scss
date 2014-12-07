@@ -173,8 +173,6 @@
       @extend .error;
      }
 
-     /* microposts */
-
     /* Users index */
       .users {
   list-style: none;
@@ -185,6 +183,27 @@
     border-bottom: 1px solid $grayLighter;
   }
 } 
+
+/* forms */
+
+.checkbox {
+      width: 100%;
+      padding: 10px;
+      padding-bottom: 15px;
+      height: auto !important;
+      @include box_sizing;
+      margin-bottom: 20px;
+      span {
+        margin-left: 10px;
+        margin-right: 20px;
+        font-weight: normal;
+      }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
 
 
   /*comments*/
