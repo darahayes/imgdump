@@ -10,6 +10,9 @@
     </div>
     <% if current_user?(@photo.user) %>
       <div class="row">
+        <div class="span2">
+          <!--favorite button goes here-->
+        </div>
         <div class="span1 offset11">
           <%= link_to "delete", @photo, method: :delete,
                                          data: { confirm: "You sure?" } %>
