@@ -3,9 +3,8 @@
   <div class="span4 offset">
   <aside>
       <section class="user_info">
-        <%= gravatar_for @user %>
-        <h1><%= @user.name %></h1>
-        <span><%= link_to "view my profile", @user %></span>
+        <%= link_to gravatar_for @user, @user %>
+        <h1><%= link_to @user.name, @user %></h1>
       </section>
       <section class="stats">
         <%= render 'shared/stats' %>

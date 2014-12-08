@@ -30,14 +30,13 @@
       </div>
       <div class="span8">
         <%if @favorites.any?%>
-          <%@favorites.each do |photo|%>
           <ul class="thumbnails">
+            <%@favorites.each do |photo|%>
                       <li class="span3">
                         <a class="thumbnail" rel="lightbox[group]" href=<%=photo_path(photo)%>><img class="group1" src=<%=photo.image.to_s%> title=<%=photo.title%> /></a>
                           </li> <!--end thumb -->
-                           <!--end thumb -->                 
+            <%end%>               <!--end thumb -->                 
                   </ul><!--end thumbnails -->
-            <%end%>
           <%elsif current_user?(@user)%>
             <h2>You don't have any favorite photos yet...</h2>
           <%else%>

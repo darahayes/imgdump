@@ -1,8 +1,8 @@
 <li class="list-group-item">
                         <div class="row">
-                            <div class="span2">
-                                <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
-                            <div class="span10">
+                            <div class="span2", id="comment-photo">
+                                <%=gravatar_for comment.user, class: "img-circle img-responsive"%>
+                            <div class="span6">
                                 <div>
                                     <div class="mic-info">
                                         <%= link_to comment.user.name, comment.user%> <%= time_ago_in_words(comment.created_at)%> ago.

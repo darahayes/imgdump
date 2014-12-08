@@ -1,7 +1,7 @@
 <%= form_for([@photo, Comment.new]) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <div class="span8">
-        <%= f.text_area :text, placeholder: "post a comment..." %>
+        <%= f.text_area :text, placeholder: "post a comment...", :input_html => {:rows => 10} %>
       </div>
       <div class="span4">
       <%= f.submit "Post", class: "btn btn-large btn-primary" %>

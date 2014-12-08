@@ -1,0 +1,7 @@
+<div class="delete-button">
+<% if current_user?(@photo.user) %>
+	<%= link_to @photo, class: "btn btn-default" do %>
+    <i class="icon-trash"></i>
+<% end %>
+<%end%>
+</div>

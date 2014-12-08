@@ -4,40 +4,41 @@
       <div class="span12">
         <h1>
           <%= @photo.title %>
-        <h1>
-        <%= image_tag @photo.image %>
+        </h1>
+          <div class=photo>
+            <%= image_tag @photo.image %>
+            <%= render "favorite_form"%>
+            <%= render "delete_button"%>
+            <p class=photo-owner><%=@photo.created_at.strftime("%d %B %Y")%> | by <%= link_to @photo.user.name, @photo.user%></p>
       </div>
     </div>
       <div class="row">
-        <div class="span2">
-          <%= render "favorite_form"%>
-        </div>
         <% if current_user?(@photo.user) %>
         <div class="span1 offset11">
-          <%= link_to "delete", @photo, method: :delete,
-                                         data: { confirm: "You sure?" } %>
+          
         </div>
         <% end %>
       </div>
-</aside>
+  </aside>
     <div class="row">
         <%= render :partial => "shared/comment_form" %>
     </div>
     <div class="container">    
         <div class="row">
             <div class="panel panel-default widget">
+              <% if @comments.any? %>
                 <div class="panel-heading">
-                    <span class="icon icon-comment"></span>
-                    <h3 class="panel-title">Comments</h3>
+                    <h3 class="comments">Comments  <i class="icon icon-comment"></i></h3>
                     <span class="label label-info"><%=@comments.size%></span>
                 </div>
                 <div class="panel-body">
                     <ol class="list-group">
-                        <% if @comments.any? %>
                             <%= render @comments %>
-                        <%end%>
                     </ol>
                 </div>
+              <%else%>
+                <h4 class="comments">Nobody has commented on this photo.</h4>
+              <%end%>
             </div>
         </div>
     </div>

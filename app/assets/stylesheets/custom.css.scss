@@ -280,5 +280,55 @@
   padding-bottom: 10px;
 }
 
+.photo {
+  p {
+    float: right;
+  font-size: medium;
+  font-weight: lighter;
+  padding-top: 5px;
+  }
+  padding: 40px;
+  background-color: $grayLighter;
+  border-radius: 5px;
+}
+
+.favorite-button {
+  padding: 5px;
+  float: left;
+}
+
+.delete-button {
+  float: left;
+  padding-top: 5px;
+}
+
+#comment-photo {
+  width: initial;
+}
+
+body {
+  background-color: #F9FAFA;
+}
+
+.comments {
+  padding-left: 20px;
+}
+
+.sign-in {
+  background-image: asset-url("home.jpg");
+}
+
+.login-form {
+  float: left;
+  padding-left: 2%;
+  padding-top: 5%;
+  font-weight: bold;
+  font-color: #F9FAFA;
+}
+
+#-webkit-autofill
+{
+  background-color: transparent;
+}
 
     
