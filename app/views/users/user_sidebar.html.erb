@@ -1,0 +1,18 @@
+<div class="span4">
+        <div class="well">
+        <ul class="nav nav-list">
+            <li class="nav-header"><%=@user.name%></li>
+            <li class="active"><a href="#">Photos</a></li>
+            <li><a href="#">Comments</a></li>
+            <li><a href="#">Feed</a></li>
+            <% if current_user? @user%>
+              <li class="divider"></li>
+              <li><%= link_to "Settings", edit_user_path(@user) %></li>
+            <%end%>
+        </ul>
+      </div>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+        <%= render 'follow_form' if signed_in? %>
+      </section>
+      </div>

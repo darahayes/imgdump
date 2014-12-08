@@ -19,20 +19,20 @@ class UsersController < ApplicationController
   end
 
   def create
-        @user = User.new(user_params)
-        if @user.save
-           sign_in @user
-           flash[:success] = "Welcome to the Twitter App!"    # NEW LINE
-           redirect_to @user   # NEW LINE
-           #render 'new' #code from tutorial. Causes problems
-        else
-            # Handle an unsuccessful save.
-            render 'new'     # NEW LINE      
-        end
+    @user = User.new(user_params)
+    if @user.save
+       sign_in @user
+       flash[:success] = "Welcome to the Twitter App!"    # NEW LINE
+       redirect_to @user   # NEW LINE
+       #render 'new' #code from tutorial. Causes problems
+    else
+        # Handle an unsuccessful save.
+        render 'new'     # NEW LINE      
     end
+  end
 
 
-def destroy
+  def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"
     redirect_to users_url
@@ -53,6 +53,13 @@ def destroy
     end
   end
 
+  def comments
+    @title = "Comments"
+    @user = User.find(params[:id])
+    @comments = @user.comments.paginate(page: params[:page])
+    render 'show_comments'
+  end
+
   def following
     @title = "Following"
     @user  = User.find(params[:id])
@@ -67,25 +74,32 @@ def destroy
     render 'show_follow'
   end
 
+  def favorites
+    @title = "Favorites"
+    @user  = User.find(params[:id])
+    @favorites = @user.favorite_photos.paginate(page: params[:page])
+    render 'show_favorites'
+  end
+
   private
-        def user_params
-          params.require(:user).permit(:name, :email, :password,
-                                       :password_confirmation)
-        end
+    def user_params
+      params.require(:user).permit(:name, :email, :password,
+                                   :password_confirmation)
+    end
 
-        # Confirms the correct user.
-        def correct_user
-          @user = User.find(params[:id])
-          redirect_to(root_url) unless current_user?(@user)
-        end
+    # Confirms the correct user.
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
 
-        def admin_user
-          redirect_to(root_url) unless current_user.admin?
-        end
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
 
-      def comments
-        if @user.comments.any?
-              @comments = @user.comments
-        end
+    def comments
+      if @user.comments.any?
+            @comments = @user.comments
       end
+    end
 end

@@ -1,6 +1,8 @@
 class Photo < ActiveRecord::Base
 	belongs_to :user
 	has_many :comments, dependent: :destroy
+    has_many :favorites, dependent: :destroy
+    has_many :favorited, through: :favorites, source: :user
 	accepts_nested_attributes_for :comments
 	mount_uploader :image, PhotoUploader
 	validate  :image_size

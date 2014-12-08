@@ -8,17 +8,17 @@
         <%= image_tag @photo.image %>
       </div>
     </div>
-    <% if current_user?(@photo.user) %>
       <div class="row">
         <div class="span2">
-          <!--favorite button goes here-->
+          <%= render "favorite_form"%>
         </div>
+        <% if current_user?(@photo.user) %>
         <div class="span1 offset11">
           <%= link_to "delete", @photo, method: :delete,
                                          data: { confirm: "You sure?" } %>
         </div>
+        <% end %>
       </div>
-    <% end %>
 </aside>
     <div class="row">
         <%= render :partial => "shared/comment_form" %>

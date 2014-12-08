@@ -1,0 +1,8 @@
+<div class="favorite-button">
+	<%= form_for(current_user.favorites.
+	                          build(photo_id: @photo.id),
+	                          remote: true) do |f| %>
+	  <div><%= hidden_field_tag :photo_id, @photo.id %></div>
+	  <%= f.submit "Favorite", class: "btn btn-primary" %>
+	<% end %>
+</div>

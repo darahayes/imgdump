@@ -1,0 +1,7 @@
+<strong id="favorite_form">
+  <% if current_user.favorited?(@photo) %>
+    <%= render 'unfavorite' %>
+  <% else %>
+    <%= render 'favorite' %>
+  <% end %>
+  </strong>

@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
     attr_accessor :remember_token
     has_many :photos, dependent: :destroy
     has_many :comments, dependent: :destroy
+    has_many :favorites, dependent: :destroy
+    has_many :favorite_photos, through: :favorites, source: :photo
     has_many :active_relationships, class_name:  "Relationship", foreign_key: "follower_id", dependent: :destroy
     has_many :passive_relationships, class_name:  "Relationship", foreign_key: "followed_id", dependent:   :destroy
     has_many :following, through: :active_relationships, source: :followed
@@ -56,6 +58,20 @@ class User < ActiveRecord::Base
   # Unfollows a user.
   def unfollow(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  #favorite a photo
+  def favorite(photo)
+    favorites.create(photo_id: photo.id)
+  end
+
+  def favorited?(photo)
+    favorite_photos.include?(photo)
+  end
+
+  #unfavorite  a photo
+  def unfavorite(photo)
+    favorites.find_by(photo_id: photo.id).destroy
   end
 
   # Returns true if the current user is following the other user.

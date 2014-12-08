@@ -1,15 +1,15 @@
 Imgdump::Application.routes.draw do
   resources :users   do
     member do
-      get :following, :followers
+      get :following, :followers, :favorites, :comments
     end
-    resources :comments
   end    # NEW LINE
   
   resources :photos do
     resources :comments
   end
 
+  resources :favorites, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :sessions, only: [:new, :create, :destroy] #for sessions
   

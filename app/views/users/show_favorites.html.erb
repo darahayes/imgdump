@@ -1,4 +1,4 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, @title) %>
     <div class="row">
       <aside class="span4">
         <section>
@@ -14,8 +14,8 @@
         <div class="well">
         <ul class="nav nav-list">
             <li class="nav-header"><%=@user.name%></li>
-            <li class="active"><%=link_to "Photos", @user%></li>
-            <li><%=link_to "Favorites", favorites_user_path(@user)%></li>
+            <li><%=link_to "Photos", @user%></li>
+            <li class="active"><%=link_to "Favorites", favorites_user_path(@user)%></li>
             <li><%=link_to "Comments", comments_user_path(@user)%></li>
             <% if current_user? @user%>
               <li class="divider"></li>
@@ -29,19 +29,19 @@
       </section>
       </div>
       <div class="span8">
+        <%if @favorites.any?%>
+          <%@favorites.each do |photo|%>
           <ul class="thumbnails">
-            <%if @user.photos.any?%>
-              <%@user.photos.each do |photo|%>
                       <li class="span3">
-                        <a class="thumbnail" href=<%=photo_path(photo)%>><img src=<%=photo.image.to_s%> title=<%=photo.title%> /></a>
+                        <a class="thumbnail" rel="lightbox[group]" href=<%=photo_path(photo)%>><img class="group1" src=<%=photo.image.to_s%> title=<%=photo.title%> /></a>
                           </li> <!--end thumb -->
-                           <!--end thumb -->  
-            <%end%>               
+                           <!--end thumb -->                 
                   </ul><!--end thumbnails -->
+            <%end%>
           <%elsif current_user?(@user)%>
-            <h2>You don't have any photos... Start by <%=link_to "uploading", upload_path%></h2>
+            <h2>You don't have any favorite photos yet...</h2>
           <%else%>
-            <h2><%=@user.name%> doesn't have any photos. Loser...</h2>
+            <h2><%=@user.name%> doesn't have any favorite photos...</h2>
           <%end%>
       </div>
     </div>
