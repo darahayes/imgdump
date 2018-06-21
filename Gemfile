@@ -3,12 +3,12 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.8'
 
-gem 'rename'
+gem 'rename', '>= 1.0.2'
 
 gem 'bcrypt-ruby', '3.1.2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails'
+gem 'sass-rails', '>= 4.0.5'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -29,9 +29,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'bootstrap-sass', '2.3.2.0'
-gem 'sprockets', '2.11.0'
+gem 'sprockets', '2.12.5'
 gem 'autoprefixer-rails'
-gem 'prettyphoto-rails'
+gem 'prettyphoto-rails', '>= 0.2.1'
 
 gem 'carrierwave',             '0.10.0'
 gem 'mini_magick',             '3.8.0'
