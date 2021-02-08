@@ -33,7 +33,7 @@ gem 'sprockets', '2.11.0'
 gem 'autoprefixer-rails'
 gem 'prettyphoto-rails'
 
-gem 'carrierwave',             '0.10.0'
+gem 'carrierwave',             '1.3.2'
 gem 'mini_magick',             '3.8.0'
 gem 'fog',                     '1.23.0'
 gem 'will_paginate',           '3.0.7'
